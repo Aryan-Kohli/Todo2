@@ -1,42 +1,95 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Roboto+Slab:wght@500&family=Tilt+Prism&display=swap');
+
+
+/* font-family: 'Merriweather', serif; */
+/* font-family: 'Roboto Slab', serif; */
+/* font-family: 'Tilt Prism', cursive; */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{   
+    min-height: 100vh;
+    background: linear-gradient(45deg , rgb(12, 1, 1) 47%,rgb(33, 31, 31));
+    background-repeat: no-repeat ;
+    background-size: contain ;
+}
+.header{
+    background:transparent;
+    color: white;
+    font-family: 'Tilt Prism', cursive;
+    font-size: 2.5rem;
+}
+.todo{
+    background-color: blue;
+    color: aqua;
+    
+}
+.todohead{
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    margin: 30px 0px 20px 0px;
+    
+    font-size: 2.5rem;
+}
+.lb{
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size:1.6rem ;
+    margin-right: 20px;
+}
+#head, #task{
+    font-size: 15px;
+    font-family: 'Roboto Slab', serif;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    /* border: 2px solid rgb(254, 0, 0); */
+    box-shadow: 0 0 6px 6px rgb(9, 46, 12);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#head::placeholder ,#task::placeholder{
+    font-family: 'Merriweather', serif;
+    /* text-transform: uppercase; */
+    color: rgb(0, 0, 0);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+#task{
+    width: calc(0.5*100vw);
+    height:calc(0.05*100vh)
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn-mine{
+    color: rgb(255, 255, 255);
+    background: transparent;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    padding: 4px 10px;
+    box-shadow:  0px 0px 3px 2px rgb(255, 255, 255)  ;
 }
+.no{
+    color: white;   
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    font-size:100px;
+    text-transform: uppercase;
+    text-shadow:  0 0 20px #e60073, 0 0 20px #e60073, 0 0 20px #e60073, 0 0 20px #e60073;
+}
+.ektodo h1{
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    font-size: 30px;
 }
+.ektodo{
+    font-family: 'Merriweather', serif;
+    /* font-family: 'Roboto Slab', serif; */
+    background-color: black;
+    margin-inline: 50px;
+    margin-block: 20px;
+    color: wheat;
+    box-shadow: 0 0 5px 5px white;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.btn-danger{
+    padding: 4px 8px;
+    font-size: 20px;
+    
 }

@@ -1,35 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import React from "react";
 
+import Todos from "./Todos";
+import Todo from "./Todo";
+import Header from "./header";
+import Forms from "./forms.jsx";
 function App() {
-  const [count, setCount] = useState(0)
-
+  const init =
+    JSON.parse(localStorage.getItem("Todo")) === null
+      ? []
+      : JSON.parse(localStorage.getItem("Todo"));
+  function addtodo(head, task) {
+    if (head == "" || task == "") {
+      alert("Enter all the values");
+    } else {
+      console.log(head, " ", task);
+      let sno = 0;
+      if (alltodos.length === 0) sno = 0;
+      else sno = alltodos.length;
+      let obj = {
+        sno: sno,
+        head: head,
+        task: task,
+      };
+      setAllTodos([...alltodos, obj]);
+      console.log(alltodos);
+    }
+  }
+  const [alltodos, setAllTodos] = React.useState(init);
+  React.useEffect(() => {
+    localStorage.setItem("Todo", JSON.stringify(alltodos));
+  }, [alltodos]);
+  function ondelete(todo) {
+    console.log(
+      "The todo which is to be deleted is : ",
+      todo.head,
+      " ",
+      todo.task
+    );
+    setAllTodos(
+      alltodos.filter((e) => {
+        return e !== todo;
+      })
+    );
+  }
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <Forms addtodo={addtodo} />
+      <Todos alltodos={alltodos} ondelete={ondelete} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
